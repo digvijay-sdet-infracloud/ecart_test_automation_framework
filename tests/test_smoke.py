@@ -11,3 +11,10 @@ def test_ecart_account_menu_items(page):
 
      account_page = AccountsPage(page)
      expect(account_page.accounts_menu_items).to_have_count(8)
+
+
+def test_verify_ecart_account_is_empty(page):
+     
+     account_page = AccountsPage(page)
+     expect(account_page.ecart_total_items).to_be_visible()
+     expect(account_page.ecart_total_items).to_have_text("0 item(s) - $0.00")

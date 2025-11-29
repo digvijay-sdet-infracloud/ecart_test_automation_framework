@@ -7,4 +7,5 @@ class AccountsPage(BasePage):
         super().__init__(page)
         self.page = page
         self.accounts_menu_items = page.locator("nav#menu ul")
+        self.ecart_total_items = page.locator("#cart-total")
         
