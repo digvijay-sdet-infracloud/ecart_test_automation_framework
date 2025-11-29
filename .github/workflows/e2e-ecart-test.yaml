@@ -11,6 +11,9 @@ jobs:
   e2e-test-ecart-app-flow:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
 
     steps:
       - name: Checkout Repo
