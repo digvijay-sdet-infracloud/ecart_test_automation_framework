@@ -1,0 +1,8 @@
+playwright
+pytest
+pytest-xdist
+pytest-html
+python-dotenv
+allure-pytest
+colorlog
+

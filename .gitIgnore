@@ -1,0 +1,65 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+
+# -------------------------
+# VS Code / IDEs
+# -------------------------
+.vscode/
+.idea/
+*.iml
+
+# -------------------------
+# Playwright
+# -------------------------
+playwright/.cache/
+playwright/report/
+test-results/
+test-output/
+html_sources/
+screenshots/
+**/trace.zip
+**/videos/
+**/screenshots/
+
+# If Playwright downloads browsers locally
+.browsers/
+
+# -------------------------
+# Allure Reports
+# -------------------------
+allure-results/
+allure-report/
+allure-history/
+
+# -------------------------
+# Pytest
+# -------------------------
+.pytest_cache/
+.cache/
+
+# -------------------------
+# OS Junk
+# -------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+logs/

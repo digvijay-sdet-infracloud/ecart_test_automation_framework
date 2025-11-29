@@ -1,0 +1,5 @@
+
+--- AFTER TEST: test_verify_menu_items_accounts ---
+URL: https://naveenautomationlabs.com/opencart/index.php?route=account/account
+Screenshot saved: screenshots/test_verify_menu_items_accounts.png
+HTML saved: html_sources/test_verify_menu_items_accounts.html

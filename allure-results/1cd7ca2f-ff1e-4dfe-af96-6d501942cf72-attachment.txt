@@ -1,0 +1,5 @@
+
+--- AFTER TEST: test_accounts_page_title ---
+URL: https://naveenautomationlabs.com/opencart/index.php?route=account/account
+Screenshot saved: screenshots/test_accounts_page_title.png
+HTML saved: html_sources/test_accounts_page_title.html
