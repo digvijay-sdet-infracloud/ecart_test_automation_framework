@@ -35,7 +35,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          pytest -v --env=dev --username="${{ secrets.USERNAME }}" --password="${{ secrets.PASSWORD }}"
+          pytest -v --env=dev --username="${{ secrets.USERNAME }}" --password="${{ secrets.PASSWORD }}" tests/
 
 
       - name: Generate Allure Report
