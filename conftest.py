@@ -1,3 +1,5 @@
+import json
+import os
 import allure
 import pytest
 from playwright.sync_api import sync_playwright
@@ -14,9 +16,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--password", action="store", help="Password for authentication"
     )
-import json
-import os
-import pytest
+
 
 @pytest.fixture(scope="session")
 def config(request):
