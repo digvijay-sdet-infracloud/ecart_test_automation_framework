@@ -21,5 +21,12 @@ class AccountsPage(BasePage):
             print(f"An error occurred while adding Mac desktop to cart: {e}")
     
 
-    def verify_items_in_cart(self):
-        self.ecart_total_items.click()
+    def verify_item_is_added_to_cart(self):
+        
+        if self.ecart_total_items.is_visible():
+           if self.ecart_total_items.get_by_text("Your shopping cart is empty!").is_visible():
+               print("The cart is empty.")
+           else:
+               self.add_mac_desktop_to_cart()
+        else:
+            print("Already items present in the cart.")
