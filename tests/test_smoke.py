@@ -1,3 +1,4 @@
+from pageObjects.basePage import BasePage
 import pytest
 from playwright.sync_api import expect
 
@@ -24,8 +25,9 @@ def test_verify_ecart_account_is_empty(page):
 def test_add_mac_desktop_to_cart(page):
 
      account_page = AccountsPage(page)
+     base_page  = BasePage(page)
      account_page.add_mac_desktop_to_cart()
      expect(account_page.ecart_total_items).to_have_text("1 item(s) - $122.00")
      account_page.verify_items_in_cart()
-     expect(page.getByRole('link', { "name": 'iMac' })).toBeVisible()
+     expect(base_page.locator_get_by_role('link', name='MacBook')).to_be_visible()
      
