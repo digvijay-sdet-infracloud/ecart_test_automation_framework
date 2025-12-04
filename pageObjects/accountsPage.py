@@ -19,3 +19,7 @@ class AccountsPage(BasePage):
             self.page.get_by_role('button', name='Add to Cart').click()
       except Exception as e:
             print(f"An error occurred while adding Mac desktop to cart: {e}")
+    
+
+    def verify_items_in_cart(self):
+        self.ecart_total_items.click()

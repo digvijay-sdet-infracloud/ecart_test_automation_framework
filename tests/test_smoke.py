@@ -26,3 +26,6 @@ def test_add_mac_desktop_to_cart(page):
      account_page = AccountsPage(page)
      account_page.add_mac_desktop_to_cart()
      expect(account_page.ecart_total_items).to_have_text("1 item(s) - $122.00")
+     account_page.verify_items_in_cart()
+     expect(page.getByRole('link', { "name": 'iMac' })).toBeVisible()
+     
