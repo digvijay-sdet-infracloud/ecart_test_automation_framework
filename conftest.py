@@ -4,6 +4,8 @@ import allure
 import pytest
 from playwright.sync_api import sync_playwright
 
+from pageObjects.basePage import BasePage
+
 
 def pytest_addoption(parser):
 
@@ -38,7 +40,7 @@ def config(request):
 @pytest.fixture(scope="session")
 def browser():
     with sync_playwright() as p:
-        browser = p.chromium.launch()
+        browser = p.chromium.launch(headless=False)
         yield browser
         browser.close()
 
@@ -75,15 +77,12 @@ def before_each_test(page, config, credentials):
 
     # 2. Auto-login if credentials provided
     if credentials["username"] and credentials["password"]:
-        
-        username_locator = page.get_by_role('textbox', name='E-Mail Address')
-        password_locator = page.get_by_role('textbox', name='Password')
-        login_button_locator = page.get_by_role('button', name='Login')
 
-        username_locator.fill(credentials["username"])
-        password_locator.fill(credentials["password"])
-        login_button_locator.click()
-        page.wait_for_load_state("networkidle")
+        base_page = BasePage(page)
+        base_page.login_orange_hrm_app(credentials["username"], credentials["password"])
+
+    else: 
+        print("No credentials provided, skipping login.")
 
     return page
 
@@ -91,10 +90,9 @@ def before_each_test(page, config, credentials):
 def after_each_test(page):
 
     yield
-
     # Logout after each test
-    page.get_by_role("link", name="My Account").first.click()
-    page.get_by_role("link", name="Logout").first.click()
+    base_page = BasePage(page)
+    base_page.do_logout()
 
 
 @pytest.hookimpl(hookwrapper=True)
